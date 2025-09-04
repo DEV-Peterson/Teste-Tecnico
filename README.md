@@ -1,43 +1,57 @@
-# Teste Técnico — Desenvolvedor(a) Fullstack Pleno (.NET + React/Redux)
+# Sistema de Gerenciamento de Pacientes
 
-Este repositório contém a solução para o desafio técnico.
+Este projeto é um sistema web para busca, cadastro e listagem de pacientes, desenvolvido com **React + TypeScript + Redux Toolkit** no frontend e **.NET 6+** no backend.
 
-## Estrutura
-- **Backend/** → API .NET 6+ com dados em memória e adapter de legado.
-- **Frontend/** → Aplicação React + Redux Toolkit (RTK Query).
-- **USO-IA.md** → transparência no uso de ferramentas de IA.
+## Funcionalidades
 
----
+- Buscar pacientes por nome (GET `/api/pacientes`)
+- Listar pacientes
+- Cadastrar novo paciente (POST `/api/pacientes`)
+- Integração com sistema legado (GET `/api/legacy/pacientes`)
+- Estado global com Redux Toolkit (RTK Query)
+- Estilização com Tailwind CSS
 
-## Como rodar
+## Requisitos
 
-### Backend (.NET 6+)
-```bash
-cd Backend
-# restaure dependências e rode
-dotnet run
+- Node.js 20+ (para frontend)
+- .NET 6 ou superior (para backend)
+
+## Instalação e execução
+
+### Backend (.NET)
+
+1. Navegue até a pasta do backend.
+2. Execute:
+   ```
+   dotnet run
+   ```
+3. O backend estará disponível em `https://localhost:7287`.
+
+### Frontend (React + Vite)
+
+1. Instale as dependências:
+   ```
+   npm install
+   ```
+2. Inicie o servidor de desenvolvimento:
+   ```
+   npm run dev
+   ```
+3. Acesse `http://localhost:5173` no navegador.
+
+## Proxy Vite
+
+O arquivo `vite.config.ts` já está configurado para proxy das rotas `/api` para o backend .NET.
+
+## Estrutura de Pastas
+
 ```
-A API subirá em uma porta dinâmica (ex.: http://localhost:5000). Anote a porta exibida no console.
-
-#### Endpoints
-- `GET /api/pacientes?nome=ana` → lista pacientes (filtro case-insensitive)
-- `POST /api/pacientes` → cadastra `{ nome: string, dataNascimento?: "YYYY-MM-DD" }`
-- `GET /api/legacy/pacientes` → lê `legacy-pacientes.json` e adapta para o modelo atual
-
----
-
-### Frontend (React + Redux Toolkit)
-```bash
-cd Frontend
-cp .env.local.example .env.local
-# edite VITE_API_BASE_URL conforme a porta da API
-npm install
-npm run dev
+src/
+  components/
+  store/
+  types/
+  App.tsx
+  main.tsx
+  index.css
+  vite-env.d.ts
 ```
-Acesse http://localhost:5173
-
----
-
-## Observações
-- Backend mantém os dados **em memória** (ao reiniciar, os registros são perdidos).
-- CORS já configurado para `http://localhost:5173`.
