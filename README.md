@@ -66,7 +66,7 @@ Este projeto é um sistema web completo para busca, cadastro, listagem e integra
    ```
 4. Execute a API:
    ```
-   dotnet run --project PatientManager.API/PatientManager.API.csproj
+   dotnet run --launch-profile "https" --project PatientManager.API/PatientManager.API.csproj
    ```
 5. O backend estará disponível em: `https://localhost:7153`
    
