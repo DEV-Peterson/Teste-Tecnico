@@ -114,9 +114,9 @@ src/
 - Testes unitários implementados para handlers de comandos e queries no backend (.NET), utilizando xUnit e Moq.
 - Para rodar os testes:
    ```
-  dotnet test
-```
-
+   dotnet test
+   ```
+   
 ---
 
 ## Diferenciais
