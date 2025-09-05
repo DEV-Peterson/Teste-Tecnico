@@ -48,29 +48,44 @@ Este projeto é um sistema web completo para busca, cadastro, listagem e integra
 
 ---
 
-## Instalação e Execução
+# Instalação e Execução
 
-### Backend (.NET)
+## Backend (.NET 8)
 
-1. Navegue até a pasta do backend.
-2. Execute:
+1. Abra o terminal e navegue até a pasta do backend:
    ```
-   dotnet run
+   cd Backend/PatientManager
    ```
-3. O backend estará disponível em `https://localhost:7153`.
+2. Restaure as dependências do projeto:
+   ```
+   dotnet restore
+   ```
+3. Compile a solução para garantir que tudo está correto:
+   ```
+   dotnet build
+   ```
+4. Execute a API:
+   ```
+   dotnet run --project PatientManager.API/PatientManager.API.csproj
+   ```
+5. O backend estará disponível em: `https://localhost:7153`
+   
+## Frontend (React + Vite)
 
-### Frontend (React + Vite)
-
-1. Instale as dependências:
+1. Abra outro terminal e navegue até a pasta do frontend:
+   ```
+   cd Frontend
+   ```
+2. Instale as dependências do projeto:
    ```
    npm install
    ```
-2. Inicie o servidor de desenvolvimento:
+3. Inicie o servidor de desenvolvimento:
    ```
    npm run dev
    ```
-3. Acesse `http://localhost:5173` no navegador.
-
+4. Acesse `http://localhost:5173` no navegador.
+   
 ---
 
 ## Proxy Vite
