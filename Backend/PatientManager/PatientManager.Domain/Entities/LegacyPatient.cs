@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace PacientesApp.Models
+namespace PatientManager.Domain.Entities
 {
     public class LegacyPatient
     {

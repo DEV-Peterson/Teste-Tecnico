@@ -1,8 +1,9 @@
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using PacientesApp.Models;
+using PatientManager.Domain.Entities;
 using System.Text.Json;
 
-namespace PacientesApp.Controllers
+namespace PatientManager.API.Controllers
 {
     [ApiController]
     [Route("api/legacy/pacientes")]
@@ -11,7 +12,10 @@ namespace PacientesApp.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "legacy-pacientes.json");
+            var baseDir = Directory.GetCurrentDirectory();
+            var infraPath = Path.Combine(baseDir, "..", "PatientManager.Infrastructure", "Files", "legacy-pacientes.json");
+            var filePath = Path.GetFullPath(infraPath);
+
             if (!System.IO.File.Exists(filePath))
                 return NotFound("Arquivo legacy-pacientes.json não encontrado.");
 
